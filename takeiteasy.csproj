@@ -87,6 +87,9 @@
     <Compile Include="Assets\Images\Background\ThirdParts\FreeParallax\Scripts\FreeParallaxDemo.cs" />
     <Compile Include="Assets\Images\CartoonTilingBackgrounds\scripts\ScrollingObject.cs" />
     <Compile Include="Assets\Images\CartoonTilingBackgrounds\scripts\repeatingBackground.cs" />
+    <Compile Include="Assets\Images\RPG Bar and Globes\Scripts\PlayerHealth.cs" />
+    <Compile Include="Assets\Images\RPG Bar and Globes\Scripts\uGUIGlobeAnimator.cs" />
+    <Compile Include="Assets\Images\RPG Bar and Globes\Scripts\uGUIHealthController.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipRandomItem.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UICursor.cs" />
@@ -239,6 +242,7 @@
     <None Include="Assets\Images\Background\Readme.txt" />
     <None Include="Assets\Images\Background\ThirdParts\FreeParallax\Readme.txt" />
     <None Include="Assets\Images\Painterly Terrain Textures\Read Me.txt" />
+    <None Include="Assets\Images\RPG Bar and Globes\_Readme.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />

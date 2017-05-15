@@ -16,11 +16,16 @@ public class PlayerManager : MonoBehaviour {
 
     Collider2D myCollider;
 
-    int currentHp;
-    int maxHp;
-	// Use this for initialization
-	void Start ()
+    public float currentHp;
+    float maxHp;
+
+    // hp
+    UIProgressBar health;
+
+    // Use this for initialization
+    void Start ()
     {
+        health = GameObject.Find("BG_Healthbar").GetComponent<UIProgressBar>();
         rigidbody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<Collider2D>();
         anim = GetComponentInChildren<Animator>();
@@ -43,15 +48,23 @@ public class PlayerManager : MonoBehaviour {
             { 
                 anim.SetTrigger("Jump");
                 //rigidbody.velocity = new Vector2(rigidbody.velocity.x, f_jumpValue);
-                rigidbody.AddForce(transform.up * f_jumpValue);
+                rigidbody.AddForce(transform.up * f_jumpValue, ForceMode2D.Force);
             }
         }
+        currentHp -= Time.deltaTime * 0.001f;
+        float perc = 100 - currentHp / maxHp * 100;
+        health.value -= perc;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if(other.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("Item"))
         {
+            if (currentHp + 5 < maxHp)
+                currentHp += 5;
+            else
+                currentHp = maxHp;
+
             Destroy(other.gameObject);
         }
     }
