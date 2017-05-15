@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "takeiteasy", "takeiteasy.csproj", "{E4A30DCA-7DEE-A21E-D747-6AE3C93BB1E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "takeiteasy.Editor", "takeiteasy.Editor.csproj", "{19D0581C-B8FB-7B09-BEB8-5234E6D3DAF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4A30DCA-7DEE-A21E-D747-6AE3C93BB1E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4A30DCA-7DEE-A21E-D747-6AE3C93BB1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4A30DCA-7DEE-A21E-D747-6AE3C93BB1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4A30DCA-7DEE-A21E-D747-6AE3C93BB1E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19D0581C-B8FB-7B09-BEB8-5234E6D3DAF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19D0581C-B8FB-7B09-BEB8-5234E6D3DAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19D0581C-B8FB-7B09-BEB8-5234E6D3DAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19D0581C-B8FB-7B09-BEB8-5234E6D3DAF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
