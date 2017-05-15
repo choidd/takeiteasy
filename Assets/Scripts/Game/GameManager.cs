@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
         f_CameraWidth = f_CameraHeight * Camera.main.aspect;
 
         StartCoroutine(make_Obstacle());
-        ItemsPos = new Vector3(Random.Range(0, f_CameraWidth), Random.Range(1, f_CameraHeight), 0);
+        ItemsPos = new Vector3(Random.Range(0, f_CameraWidth), Random.Range(1, f_CameraHeight), -1);
     }
 
     IEnumerator make_Obstacle()
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
         while (true)
         {
             ItemsPos = new Vector3(Random.Range(PlayerPos.position.x + 10, PlayerPos.position.x + 30),
-                Random.Range(0, f_CameraHeight ), 0);
+                Random.Range(0, f_CameraHeight ), -1);
             Instantiate(O_Items[Random.Range(0, O_Items.Length)], ItemsPos, Quaternion.identity);
 
             yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));

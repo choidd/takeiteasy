@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour {
 
     Rigidbody2D rigidbody;
 
-    public bool grounded;
+    public bool isgrounded;
 
     public LayerMask isGround;
 
@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour {
         anim = GetComponentInChildren<Animator>();
         f_currentSpeed = 5.0f;
         f_maxSpeed = 5.0f;
-        f_jumpValue = 15.0f;
+        f_jumpValue = 280.0f;
 
         maxHp = 100;
         currentHp = maxHp;
@@ -40,32 +40,36 @@ public class PlayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        grounded = Physics2D.IsTouchingLayers(myCollider, isGround);
+        isgrounded = Physics2D.IsTouchingLayers(myCollider, isGround);
         // 터치하면 점프
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetKeyDown(KeyCode.Space))
         {
-            if(grounded)
+            if(isgrounded)
             { 
                 anim.SetTrigger("Jump");
+                transform.Translate(Vector3.up * f_jumpValue * Time.deltaTime, Space.World);
                 //rigidbody.velocity = new Vector2(rigidbody.velocity.x, f_jumpValue);
-                rigidbody.AddForce(transform.up * f_jumpValue, ForceMode2D.Force);
+                //rigidbody.AddForce(transform.up * f_jumpValue, ForceMode2D.Impulse);
             }
         }
-        currentHp -= Time.deltaTime * 0.001f;
-        float perc = 100 - currentHp / maxHp * 100;
-        health.value -= perc;
+        currentHp -= Time.deltaTime * 3.0f;
+        float perc = currentHp / maxHp;
+        health.value = perc;
+
+        Debug.Log(perc);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("Item"))
+        if(other.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("Potion"))
         {
             if (currentHp + 5 < maxHp)
-                currentHp += 5;
+                currentHp += 2;
             else
                 currentHp = maxHp;
-
-            Destroy(other.gameObject);
         }
+        //else if (other.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("Coin"))
+
+        Destroy(other.gameObject);
     }
 }

@@ -7,6 +7,9 @@ TagManager:
   - DestroyBar
   - Enemy
   - Friendly
+  - HealthSprite
+  - ManaSprite
+  - HealthController
   layers:
   - Default
   - TransparentFX
@@ -18,10 +21,10 @@ TagManager:
   - 
   - NGUI
   - Enemy
-  - Item
+  - 
   - Ground
-  - 
-  - 
+  - Potion
+  - Coin
   - 
   - 
   - 
