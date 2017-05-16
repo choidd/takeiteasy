@@ -22,9 +22,17 @@ public class PlayerManager : MonoBehaviour {
     // hp
     UIProgressBar health;
 
+    // ending menu
+    public GameObject O_Ending;
+
+    bool isDie;
+
+    GameObject O_Bakcgroundscroll;
     // Use this for initialization
     void Start ()
     {
+        O_Bakcgroundscroll = GameObject.Find("Background");
+        isDie = false;
         health = GameObject.Find("BG_Healthbar").GetComponent<UIProgressBar>();
         rigidbody = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<Collider2D>();
@@ -53,12 +61,31 @@ public class PlayerManager : MonoBehaviour {
             }
         }
         currentHp -= Time.deltaTime * 3.0f;
+
+        if (currentHp < 0 && isDie == false)
+            onDie();
+
         float perc = currentHp / maxHp;
         health.value = perc;
 
         Debug.Log(perc);
     }
 
+    void onDie()
+    {
+        // 미리 만들어둔 ui 출력
+        // animator, time, ... 정지
+        isDie = true;
+        O_Ending.SetActive(true);
+        StartCoroutine(DieProcess());
+    }
+
+    IEnumerator DieProcess()
+    {
+        anim.SetTrigger("Die");
+        yield return new WaitForSeconds(3.0f);
+        Time.timeScale = 0.0f;
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.GetComponent<Collider2D>().gameObject.layer == LayerMask.NameToLayer("Potion"))

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackgroundScroll : MonoBehaviour {
 
-    private float speed = 0.5f;
+    public float speed = 0.5f;
 
     Renderer render;
 	// Use this for initialization

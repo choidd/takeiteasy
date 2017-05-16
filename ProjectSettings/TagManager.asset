@@ -10,6 +10,7 @@ TagManager:
   - HealthSprite
   - ManaSprite
   - HealthController
+  - EndingUI
   layers:
   - Default
   - TransparentFX
